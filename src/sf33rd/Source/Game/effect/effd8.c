@@ -17,7 +17,7 @@
 
 // Forward decls
 
-void Setup_EffD8_Pos(WORK_Other* ewk, s16 /* unused */);
+void Setup_EffD8_Pos(WORK_Other* ewk, s16 p1);
 s32 Setup_Face_Offset_X(s16 x);
 
 // Data
@@ -152,7 +152,7 @@ s32 effect_D8_init(s16 PL_id, s16 Type) {
     return 0;
 }
 
-void Setup_EffD8_Pos(WORK_Other* ewk, s16 /* unused */) {
+void Setup_EffD8_Pos(WORK_Other* ewk, s16 p1) {
     s16 xx = ID_of_Face[Cursor_Y[ewk->master_id]][Cursor_X[ewk->master_id]];
     ewk->wu.xyz[0].disp.pos = Face_Pos_Data[xx][0] + 512;
     ewk->wu.xyz[1].disp.pos = Face_Pos_Data[xx][1] + 0;

@@ -8,7 +8,7 @@
 
 extern const struct _SAVE_W Game_Default_Data;
 
-void Switch_Screen_Init(s32 /* unused */);
+void Switch_Screen_Init(s32 p1);
 s32 Switch_Screen(u8 Wipe_Type);
 s32 Switch_Screen_Revival(u8 Wipe_Type);
 u16 Convert_User_Setting(s16 PL_id);
@@ -82,6 +82,6 @@ void Clear_Break_Com(s16 PL_id);
 void njWaitVSync_with_N();
 void Meltw(u16* s, u16* d, s32 file_ptr);
 void cpRevivalTask();
-s32 Flash_Violent(WORK_Other* /* unused */, s32 /* unused */);
+s32 Flash_Violent(WORK_Other* p1, s32 p2);
 
 #endif

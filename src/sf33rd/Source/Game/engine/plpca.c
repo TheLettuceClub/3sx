@@ -126,7 +126,7 @@ void check_nagenuke(PLW* wk, PLW* tk) {
     tk->wu.dm_stop = 0;
 }
 
-void Catch_00000(PLW* /* unused */) {}
+void Catch_00000(PLW* p1) {}
 
 void Catch_01000(PLW* wk) {
     switch (wk->wu.routine_no[3]) {

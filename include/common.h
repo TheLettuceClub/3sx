@@ -38,12 +38,20 @@ __asm__(".include \"include/cri_macro.inc\"\n");
 
 #else
 
+#if defined(_MSC_VER)
+#define ATTR_ALIGNED(value) __declspec(align(value))
+#else
 #define ATTR_ALIGNED(value) __attribute__((aligned(value)))
+#endif
 
 #endif
 
 #ifndef __dead2
+#if defined(_MSC_VER)
+#define __dead2 __declspec(noreturn)
+#else
 #define __dead2 __attribute__((__noreturn__))
+#endif
 #endif
 
 __dead2 void fatal_error(const s8* fmt, ...);

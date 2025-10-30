@@ -43,6 +43,10 @@ typedef s32 ssize_t;
 #include <stddef.h>
 #include <stdint.h>
 #include <sys/types.h>
+#if defined(_MSC_VER)
+#include <basetsd.h>
+#define ssize_t SSIZE_T
+#endif
 
 typedef int8_t s8;
 typedef int16_t s16;

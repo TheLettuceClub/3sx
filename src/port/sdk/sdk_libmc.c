@@ -62,35 +62,35 @@ int sceMcGetInfo(int port, int slot, int* type, int* free, int* format) {
     return 0;
 }
 
-int sceMcOpen(int, int, const char*, int) {
+int sceMcOpen(int p1, int p2, const char* p3, int p4) {
     not_implemented(__func__);
 }
 
-int sceMcClose(int) {
+int sceMcClose(int p1) {
     not_implemented(__func__);
 }
 
-int sceMcRead(int, void*, int) {
+int sceMcRead(int p1, void* p2, int p3) {
     not_implemented(__func__);
 }
 
-int sceMcWrite(int, const void*, int) {
+int sceMcWrite(int p1, const void* p2, int p3) {
     not_implemented(__func__);
 }
 
-int sceMcMkdir(int, int, const char*) {
+int sceMcMkdir(int p1, int p2, const char* p3) {
     not_implemented(__func__);
 }
 
-int sceMcDelete(int, int, const char*) {
+int sceMcDelete(int p1, int p2, const char* p3) {
     not_implemented(__func__);
 }
 
-int sceMcFormat(int, int) {
+int sceMcFormat(int p1, int p2) {
     not_implemented(__func__);
 }
 
-int sceMcUnformat(int, int) {
+int sceMcUnformat(int p1, int p2) {
     not_implemented(__func__);
 }
 

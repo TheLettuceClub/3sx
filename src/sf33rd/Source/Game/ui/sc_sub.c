@@ -50,7 +50,7 @@ u8 ascProData[128] = { 0, 18, 0, 0, 0,  0, 0,  0,  0,  0, 0,  0, 0, 0,  0,  0,  
 SAFrame sa_frame[3][48];
 
 // sbss
-Polygon scrscrntex[4];
+Polygon2 scrscrntex[4];
 u8 WipeLimit;
 u8 FadeLimit;
 s16 Hnc_Num;
@@ -1445,7 +1445,7 @@ void hnc_set(u8 num, u8 atr) {
 }
 
 void hnc_wipeinit(u8 atr) {
-    Polygon dmyvtx[4];
+    Polygon2 dmyvtx[4];
     u8 i;
     u8 j;
     u8 k;
@@ -1475,7 +1475,7 @@ void hnc_wipeinit(u8 atr) {
 }
 
 s32 hnc_wipeout(u8 atr) {
-    Polygon vtx[4];
+    Polygon2 vtx[4];
     u8 i;
     u8 j;
     u8 k;

@@ -25,7 +25,7 @@ void Reset_Sleep(struct _TASK* task_ptr);
 void Check_Reset();
 u8 Check_SoftReset(s16 PL_id);
 s32 Setup_Next_Disposal();
-void Check_Reset_IO(struct _TASK* /* unused */, s16 PL_id);
+void Check_Reset_IO(struct _TASK* p1, s16 PL_id);
 
 void Reset_Task(struct _TASK* task_ptr) {
     void (*Main_Jmp_Tbl[4])() = { Reset_Init, Reset_Move, Reset_Wait, Reset_Sleep };
@@ -130,7 +130,7 @@ s32 Setup_Next_Disposal() {
     return 0;
 }
 
-void Check_Reset_IO(struct _TASK* /* unused */, s16 PL_id) {
+void Check_Reset_IO(struct _TASK* p1, s16 PL_id) {
     u16 sw;
     u16 plsw;
 

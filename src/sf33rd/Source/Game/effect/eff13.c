@@ -742,7 +742,7 @@ void kotp_03000(WORK_Other* ewk, TAMA* twk) {
     }
 }
 
-void kotp_04000(WORK_Other* ewk, TAMA* /* unused */) {
+void kotp_04000(WORK_Other* ewk, TAMA* p1) {
     ewk->wu.disp_flag = 0;
     ewk->wu.routine_no[0] = 2;
 }
@@ -1619,7 +1619,7 @@ void kotp_13000(WORK_Other* ewk, TAMA* twk) {
     }
 }
 
-void kotp_14000(WORK_Other* ewk, TAMA* /* unused */) {
+void kotp_14000(WORK_Other* ewk, TAMA* p1) {
     char_move(&ewk->wu);
 
     if (ewk->wu.hf.hit_flag) {

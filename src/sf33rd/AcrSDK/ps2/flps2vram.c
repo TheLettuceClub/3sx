@@ -19,7 +19,7 @@
 
 static s32 flPS2ConvertTextureFromContext(plContext* lpcontext, FLTexture* lpflTexture, u32 type);
 u32 flPS2GetTextureSize(u32 format, s32 dw, s32 dh, s32 bnum);
-s32 flPS2LockTexture(Rect* /* unused */, FLTexture* lpflTexture, plContext* lpcontext, u32 flag, s32 /* unused */);
+s32 flPS2LockTexture(Rect* p1, FLTexture* lpflTexture, plContext* lpcontext, u32 flag, s32 p2);
 s32 flPS2UnlockTexture(FLTexture*);
 
 u32 flCreateTextureHandle(plContext* bits, u32 flag) {
@@ -344,7 +344,7 @@ s32 flLockPalette(Rect* lprect, u32 th, plContext* lpcontext, u32 flag) {
     return 1;
 }
 
-s32 flPS2LockTexture(Rect* /* unused */, FLTexture* lpflTexture, plContext* lpcontext, u32 flag, s32 /* unused */) {
+s32 flPS2LockTexture(Rect* p1, FLTexture* lpflTexture, plContext* lpcontext, u32 flag, s32 p2) {
     u8* buff_ptr;
     u8* buff_ptr1;
     plContext src;

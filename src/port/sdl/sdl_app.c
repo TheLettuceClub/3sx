@@ -12,10 +12,16 @@
 #define FRAME_END_TIMES_MAX 30
 
 static const char* app_name = "Street Fighter III: 3rd Strike";
+#if defined(_MSC_VER)
+#define display_target_ratio 4.0 / 3.0
+#define window_default_width 640
+#define target_fps 59.59949
+#else
 static const float display_target_ratio = 4.0 / 3.0;
 static const int window_default_width = 640;
-static const int window_default_height = (int)(window_default_width / display_target_ratio);
 static const double target_fps = 59.59949;
+#endif
+static const int window_default_height = (int)(window_default_width / display_target_ratio);
 static const Uint64 target_frame_time_ns = 1000000000.0 / target_fps;
 
 SDL_Window* window = NULL;

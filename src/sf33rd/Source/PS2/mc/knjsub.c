@@ -80,9 +80,9 @@ static u32 ascii2sjis_sce(u8 data);
 static u32 ascii2sjis_nec(u8 data);
 static u32 sjis2index(u32 code, u32 sort);
 static void unicode_puts(_kanji_w* kw, const s8* str);
-static u32* make_fbg_pkt(_kanji_w* kw, u32* p, u32* /* unused */, u32 han_f);
+static u32* make_fbg_pkt(_kanji_w* kw, u32* p, u32* p1, u32 han_f);
 static u32* make_fnt_pkt(_kanji_w* kw, u32* p, u32* img, u32 han_f);
-static u32* make_env_pkt(u32* p, u32 /* unused */, u32 /* unused */);
+static u32* make_env_pkt(u32* p, u32 p1, u32 p2);
 static u32* make_pal_pkt(_kanji_w* kw, u32* p);
 static u32* get_img_adrs(_kanji_w* kw, u32 index);
 static u32* get_uni_adrs(_kanji_w* kw, u32 index);
@@ -1055,7 +1055,7 @@ s32 KnjCheckCode(const s8* str) {
     return ret;
 }
 
-static u32* make_env_pkt(u32* p, u32 /* unused */, u32 /* unused */) {
+static u32* make_env_pkt(u32* p, u32 p1, u32 p2) {
 
     return p;
 }
@@ -1117,7 +1117,7 @@ static u32* make_fnt_pkt(_kanji_w* kw, u32* p, u32* img, u32 han_f) {
     return p;
 }
 
-static u32* make_fbg_pkt(_kanji_w* kw, u32* p, u32* /* unused */, u32 han_f) {
+static u32* make_fbg_pkt(_kanji_w* kw, u32* p, u32* p1, u32 han_f) {
     s32 x;
     s32 y;
     s32 x0;

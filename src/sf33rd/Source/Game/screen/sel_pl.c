@@ -103,7 +103,7 @@ void Sel_PL_Sub_CU(s16 PL_id);
 void Sel_PL_Sub_CD(s16 PL_id);
 void Auto_Repeat_Sub(s16 PL_id);
 u16 Auto_Repeat_Sub_Wife(s16 PL_id);
-void Sel_Arts_Sub(s16 PL_id, u16 sw, u16 /* unused */);
+void Sel_Arts_Sub(s16 PL_id, u16 sw, u16 p1);
 void Check_Exit();
 void Exit_1st();
 void Exit_2nd();
@@ -1458,7 +1458,7 @@ u16 Auto_Repeat_Sub_Wife(s16 PL_id) {
     return 0;
 }
 
-void Sel_Arts_Sub(s16 PL_id, u16 sw, u16 /* unused */) {
+void Sel_Arts_Sub(s16 PL_id, u16 sw, u16 p1) {
     u16 lever_sw;
 
     if (Sel_Arts_Complete[PL_id]) {

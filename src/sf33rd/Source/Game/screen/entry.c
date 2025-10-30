@@ -88,7 +88,7 @@ void Break_Into_09(s16 PL_id);
 void Break_Into_10(s16 PL_id);
 void Continue_Score_Sub(s16 PL_id);
 
-void Entry_Task(struct _TASK* /* unused */) {
+void Entry_Task(struct _TASK* p1) {
     s16 ix;
     s16 ff;
 
@@ -1340,7 +1340,7 @@ s32 Ck_Break_Into_SP(u16 Sw_0, u16 Sw_1, s16 PL_id) {
     return ENTRY_X = 1;
 }
 
-void Break_Into_02(s16 /* unused */) {
+void Break_Into_02(s16 p1) {
     gs.plw[New_Challenger].wu.operator = 1;
     Operator_Status[New_Challenger] = 1;
     E_Number[New_Challenger][0] = 0;
@@ -1356,7 +1356,7 @@ void Break_Into_02(s16 /* unused */) {
     Unit_Of_Timer = 60;
 }
 
-void Break_Into_04(s16 /* unused */) {
+void Break_Into_04(s16 p1) {
     Break_Into = 1;
     E_No[1] += 1;
     E_No[2] = 0;

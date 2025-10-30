@@ -32,7 +32,7 @@ void key_thru(PLW* pl) {
     sw_pick_up();
 }
 
-void cmd_data_set(PLW* /* unused */, s16 i) {
+void cmd_data_set(PLW* p1, s16 i) {
     u8* ptr3;
     u16* ptr4;
 

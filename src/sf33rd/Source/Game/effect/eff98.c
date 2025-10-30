@@ -80,7 +80,7 @@ void EFF98_SLIDE_IN(WORK_Other* ewk) {
     }
 }
 
-void EFF98_SLIDE_OUT(WORK_Other* /* unused */) {}
+void EFF98_SLIDE_OUT(WORK_Other* p1) {}
 
 void EFF98_SUDDENLY(WORK_Other* ewk) {
     switch (ewk->wu.routine_no[1]) {

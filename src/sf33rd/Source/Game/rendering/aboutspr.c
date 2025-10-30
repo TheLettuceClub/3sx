@@ -84,7 +84,7 @@ void setup_bonus_car_parts() {
     // Do nothing
 }
 
-void setup_dma_group(u16 num, u32 /* unused */) {
+void setup_dma_group(u16 num, u32 p1) {
     load_any_texture_patnum(num, 2, 0);
 }
 

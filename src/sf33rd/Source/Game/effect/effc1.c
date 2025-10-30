@@ -97,7 +97,7 @@ void effect_C1_move(WORK_Other* ewk) {
 }
 
 #if defined(TARGET_PS2)
-s32 effect_C1_init(WORK* wk, s32 /* unused */) {
+s32 effect_C1_init(WORK* wk, s32 p1) {
     s16 get_my_trans_mode(s32 curr);
 #else
 s32 effect_C1_init(WORK* wk) {

@@ -687,7 +687,7 @@ void SsAllNoteOff() {
     sound_all_off();
 }
 
-void SsRequestPan(u16 reqNum, s16 start, s16 /* unused */, s32 /* unused */, s32 /* unused */) {
+void SsRequestPan(u16 reqNum, s16 start, s16 p1, s32 p2, s32 p3) {
     SoundPatchConfig rmcode;
 
     start -= 0x40;
@@ -887,7 +887,7 @@ void SsBgmFadeOut(u16 time) {
     sound_request_for_dc(&rmcode, 0);
 }
 
-void SsBgmControl(s8 /* unused */, s8 VOLUME) {
+void SsBgmControl(s8 p1, s8 VOLUME) {
     SoundPatchConfig rmcode;
 
     rmcode.ptix = 0x7F;

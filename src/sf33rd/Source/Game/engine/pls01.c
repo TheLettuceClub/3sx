@@ -43,7 +43,7 @@ s32 sa_stop_check() {
     return 0;
 }
 
-void check_my_tk_power_off(PLW* wk, PLW* /* unused */) {
+void check_my_tk_power_off(PLW* wk, PLW* p1) {
     if (wk->wu.old_rno[1] == 1) {
         if (wk->wu.old_rno[2] < 8 && wk->wu.old_rno[2] > 3) {
             return;

@@ -13,7 +13,7 @@
 
 void att_ahj_table_reader(PLW* wk);
 
-void Att_DUMMY(PLW* /* unused */) {}
+void Att_DUMMY(PLW* p1) {}
 
 void Att_METAMOR_WAIT(PLW* wk) {
     wk->scr_pos_set_flag = 0;

@@ -49,7 +49,7 @@ void Win_13000(PLW* wk);
 void Win_14000(PLW* wk);
 void urien_dash(PLW* wk);
 void Win_15000(PLW* wk);
-s16 win_select(PLW* /* unused */, s16 num);
+s16 win_select(PLW* p1, s16 num);
 void bonus_game_win_pause(PLW* wk);
 void meta_win_pause(PLW* wk);
 
@@ -1512,7 +1512,7 @@ void Win_15000(PLW* wk) {
     }
 }
 
-s16 win_select(PLW* /* unused */, s16 num) {
+s16 win_select(PLW* p1, s16 num) {
     s16 work = random_16();
     work &= num;
     return work;

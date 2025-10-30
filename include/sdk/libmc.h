@@ -93,6 +93,18 @@ typedef struct {
     unsigned short Year;
 } sceMcStDateTime;
 
+#if defined(_MSC_VER)
+__declspec(align(64)) typedef struct {
+    sceMcStDateTime _Create;
+    sceMcStDateTime _Modify;
+    unsigned int FileSizeByte;
+    unsigned short AttrFile;
+    unsigned short Reserve1;
+    unsigned int Reserve2;
+    unsigned int PdaAplNo;
+    unsigned char EntryName[32];
+} sceMcTblGetDir;
+#else
 typedef struct {
     sceMcStDateTime _Create;
     sceMcStDateTime _Modify;
@@ -103,6 +115,7 @@ typedef struct {
     unsigned int PdaAplNo;
     unsigned char EntryName[32];
 } sceMcTblGetDir __attribute__((aligned(64)));
+#endif
 
 #ifdef __SCE_MC_OLD_DEFINE__
 #define CSec _Create.Sec

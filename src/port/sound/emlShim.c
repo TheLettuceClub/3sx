@@ -173,10 +173,14 @@ static int GetLfoVal(struct LFO* lfo) {
     return ret >> 15;
 }
 
+#define list_for_each(var, head, member, type) \
+    for (var = (head.next - &(((type)0)->member)); !(&(var)->member == &head); var = (var->member.next - &(((type)0)->member)))
+
 static void workTick() {
     struct VWork* i;
 
-    list_for_each (i, &active_voices, list) {
+    list_for_each(i, active_voices, list, struct VWork*)
+    {
         i->tick++;
         MoveLFO(&i->lfo_pitch);
         MoveLFO(&i->lfo_vol);
@@ -216,13 +220,16 @@ void emlShimInit() {
     SDL_UnlockMutex(soundLock);
 }
 
+#define list_for_each_safe(var, n, head, member, type) \
+    for (var = (head.next - &(((type)0)->member)), n = (var->member.next - &(((type)0)->member)); !(&(var)->member == &head); var = n, n = (n->member.next - &(((type)0)->member)))
+
 static int gcVoices() {
     struct VWork *i, *n;
     int numFreed = 0;
 
     SDL_LockMutex(soundLock);
 
-    list_for_each_safe (i, n, &active_voices, list) {
+    list_for_each_safe (i, n, active_voices, list, struct VWork*) {
         if (SPU_VoiceIsFinished(i->voice_num)) {
             list_remove(&i->list);
             list_insert(&free_voices, &i->list);
@@ -245,7 +252,8 @@ static struct VWork* allocVoice() {
         // TODO use voice priority to find a voice to reuse?
     }
 
-    voice = list_first_entry(&free_voices, struct VWork, list);
+    // voice = list_first_entry(&free_voices, struct VWork, list);
+    voice = free_voices.next - &(((struct VWork*)0)->list);
     list_remove(&voice->list);
     list_insert(&active_voices, &voice->list);
 
@@ -370,7 +378,7 @@ static int getCategoryVoiceNum(CSE_REQP* reqp) {
     struct VWork* i;
     int count = 0;
 
-    list_for_each (i, &active_voices, list) {
+    list_for_each (i, active_voices, list, struct VWork*) {
         if (checkConditions(&i->id, reqp, cond)) {
             count++;
         }
@@ -384,7 +392,7 @@ static struct VWork* getLowestPrioWk(CSE_REQP* reqp) {
     struct VWork* lowest = NULL;
     struct VWork* i;
 
-    list_for_each (i, &active_voices, list) {
+    list_for_each (i, active_voices, list, struct VWork*) {
         if (checkConditions(&i->id, reqp, cond)) {
             if (!lowest) {
                 lowest = i;
@@ -428,7 +436,7 @@ static int doSeDrop(CSE_REQP* reqp) {
             }
         }
     } else if (reqp->flags & 1) {
-        list_for_each (v, &active_voices, list) {
+        list_for_each (v, active_voices, list, struct VWork*) {
             if (checkConditions(&v->id, reqp, cond)) {
                 if (reqp->prio < v->id.prio) {
                     ret = 0;
@@ -502,7 +510,7 @@ void emlShimSeKeyOff(CSE_REQP* pReqp) {
 
     SDL_LockMutex(soundLock);
 
-    list_for_each (i, &active_voices, list) {
+    list_for_each (i, active_voices, list, struct VWork*) {
         if (checkConditions(&i->id, pReqp, cond)) {
             SPU_VoiceKeyOff(i->voice_num);
         }
@@ -517,7 +525,7 @@ void emlShimSeStop(CSE_REQP* pReqp) {
 
     SDL_LockMutex(soundLock);
 
-    list_for_each (i, &active_voices, list) {
+    list_for_each (i, active_voices, list, struct VWork*) {
         if (checkConditions(&i->id, pReqp, cond)) {
             SPU_VoiceStop(i->voice_num);
         }
@@ -531,7 +539,7 @@ void emlShimSeStopAll() {
 
     SDL_LockMutex(soundLock);
 
-    list_for_each (i, &active_voices, list) {
+    list_for_each (i, active_voices, list, struct VWork*) {
         SPU_VoiceStop(i->voice_num);
     }
 
@@ -560,7 +568,7 @@ void emlShimSeSetLfo(CSE_SYS_PARAM_LFO* param) {
 
     SDL_LockMutex(soundLock);
 
-    list_for_each (i, &active_voices, list) {
+    list_for_each (i, active_voices, list, struct VWork*) {
         if (checkConditions(&i->id, &param->reqp, cond)) {
             i->lfo_pitch.state = 0;
             i->lfo_pitch.speed = param->pmd_speed;

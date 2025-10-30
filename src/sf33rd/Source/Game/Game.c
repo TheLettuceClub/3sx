@@ -59,8 +59,8 @@
 #include "sf33rd/Source/Game/ui/sc_sub.h"
 #include "structs.h"
 
-void Wait_Auto_Load(struct _TASK* /* unused */);
-void Loop_Demo(struct _TASK* /* unused */);
+void Wait_Auto_Load(struct _TASK* p1);
+void Loop_Demo(struct _TASK* p1);
 void Game();
 void Game00();
 void Game01();
@@ -1538,7 +1538,7 @@ void Game11() {
     BG_move();
 }
 
-void Loop_Demo(struct _TASK* /* unused */) {
+void Loop_Demo(struct _TASK* p1) {
     if (Ck_Coin()) {
         Next_Title_Sub();
         return;
@@ -1840,7 +1840,7 @@ void Before_Select_Sub() {
     }
 }
 
-void Wait_Auto_Load(struct _TASK* /* unused */) {
+void Wait_Auto_Load(struct _TASK* p1) {
     Basic_Sub();
     BG_Draw_System();
     bg_pos_hosei_sub2(0);

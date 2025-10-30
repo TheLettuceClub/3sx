@@ -76,7 +76,7 @@ void setup_caught_process_flags(PLW* wk) {
     }
 }
 
-void Caught_00000(PLW* /* unused */, PLW* /* unused */) {}
+void Caught_00000(PLW* p1, PLW* p2) {}
 
 void Caught_01000(PLW* wk, PLW* emwk) {
     switch (wk->wu.routine_no[3]) {
@@ -168,7 +168,7 @@ void Caught_02000(PLW* wk, PLW* emwk) {
     }
 }
 
-void Caught_03000(PLW* /* unused */, PLW* /* unused */) {}
+void Caught_03000(PLW* p1, PLW* p2) {}
 
 void caught_cg_type_check(PLW* wk, PLW* emwk) {
     switch (wk->wu.cg_type) {

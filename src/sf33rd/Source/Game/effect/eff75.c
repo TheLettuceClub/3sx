@@ -32,7 +32,7 @@ void EFF75_WAIT(WORK_Other* ewk) {
     }
 }
 
-void EFF75_SLIDE_IN(WORK_Other* /* unused */) {}
+void EFF75_SLIDE_IN(WORK_Other* p1) {}
 
 void EFF75_CHAR_CHANGE(WORK_Other* ewk) {
     if (--Order_Timer[ewk->wu.dir_old] != 0) {

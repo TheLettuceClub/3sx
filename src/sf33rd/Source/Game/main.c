@@ -1,3 +1,12 @@
+#if defined(_WIN32)
+// this needs to be first because we're now including all of windows.h, so other headers that rely on it cause issues if not included after
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
+#include <ConsoleApi.h>
+#include <stdio.h>
+#endif
+
 #include "sf33rd/Source/Game/main.h"
 #include "common.h"
 #include "port/sdl/sdl_app.h"
@@ -41,13 +50,6 @@
 #include "port/resources.h"
 
 #include <SDL3/SDL.h>
-
-#if defined(_WIN32)
-#include <windef.h> // including windows.h causes conflicts with the Polygon struct, so I just included the header where AllocConsole is and the Windows-specific typedefs that it requires.
-
-#include <ConsoleApi.h>
-#include <stdio.h>
-#endif
 
 #include <memory.h>
 #include <stdbool.h>

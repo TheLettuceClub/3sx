@@ -99,8 +99,8 @@ void Com_Catch(PLW* wk);
 
 void Damage_1st(PLW* wk);
 void Damage_2nd(PLW* wk);
-void Damage_3rd(PLW* /* unused */);
-void Damage_4th(PLW* /* unused */);
+void Damage_3rd(PLW* p1);
+void Damage_4th(PLW* p1);
 void Damage_5th(PLW* wk);
 void Damage_6th(PLW* wk);
 void Damage_7th(PLW* wk);
@@ -839,9 +839,9 @@ void Damage_2nd(PLW* wk) {
     }
 }
 
-void Damage_3rd(PLW* /* unused */) {}
+void Damage_3rd(PLW* p1) {}
 
-void Damage_4th(PLW* /* unused */) {}
+void Damage_4th(PLW* p1) {}
 
 void Damage_5th(PLW* wk) {
     if (wk->wu.routine_no[3] == 0) {

@@ -34,7 +34,7 @@ uintptr_t mmRoundOff(s32 unit, uintptr_t num) {
     return num & ~(unit - 1);
 }
 
-void mmDebWriteTag(s8* /* unused */) {
+void mmDebWriteTag(s8* p1) {
     // Do nothing
 }
 

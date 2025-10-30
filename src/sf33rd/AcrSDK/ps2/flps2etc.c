@@ -16,7 +16,11 @@
 #include <libgraph.h>
 #include <stdio.h>
 #include <string.h>
+#if !defined(_MSC_VER)
 #include <unistd.h>
+#else
+#include <io.h>
+#endif
 
 #if !defined(TARGET_PS2) && !defined(_WIN32)
 #include <ctype.h>
@@ -54,7 +58,7 @@ s32 flFileRead(s8* filename, void* buf, s32 len) {
     strcpy(temp, "cdrom0:\\THIRD\\");
     p = strlen(temp) + temp;
     strcat(temp, filename);
-    strupr(p);
+    _strupr(p);
     strcat(temp, ";1");
 
     fd = open(temp, O_RDONLY);

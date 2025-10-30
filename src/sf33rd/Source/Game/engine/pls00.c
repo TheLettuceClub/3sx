@@ -84,7 +84,7 @@ void TO_nm_18000_01(WORK* wk) {
     nm_18000((PLW*)wk);
 }
 
-void nm_00000(PLW* /* unused */) {}
+void nm_00000(PLW* p1) {}
 
 void nm_01000(PLW* wk) {
     if (setup_kuzureochi(wk)) {
@@ -1501,7 +1501,7 @@ void nm_49000(PLW* wk) {
     jumping_cg_type_check(wk);
 }
 
-void nm_51000(PLW* /* unused */) {}
+void nm_51000(PLW* p1) {}
 
 void nm_52000(PLW* wk) {
     if (check_full_gauge_attack(wk, 0)) {
@@ -1751,7 +1751,7 @@ void process_catch(PLW* wk) {
     }
 }
 
-void process_caught(PLW* /* unused */) {}
+void process_caught(PLW* p1) {}
 
 void process_attack(PLW* wk) {
     if (wk->wu.routine_no[3]) {

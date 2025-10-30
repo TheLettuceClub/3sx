@@ -23,15 +23,15 @@ void Pause_Task(struct _TASK* task_ptr);
 
 void Pause_Check(struct _TASK* task_ptr);
 void Pause_Move(struct _TASK* task_ptr);
-void Pause_Sleep(struct _TASK* /* unused */);
-void Pause_Die(struct _TASK* /* unused */);
+void Pause_Sleep(struct _TASK* p1);
+void Pause_Die(struct _TASK* p1);
 
 void Flash_Pause(struct _TASK* task_ptr);
 
-void Flash_Pause_Sleep(struct _TASK* /* unused */);
+void Flash_Pause_Sleep(struct _TASK* p1);
 void Flash_Pause_1st(struct _TASK* task_ptr);
 void Flash_Pause_2nd(struct _TASK* task_ptr);
-void Flash_Pause_3rd(struct _TASK* /* unused */);
+void Flash_Pause_3rd(struct _TASK* p1);
 void Flash_Pause_4th(struct _TASK* task_ptr);
 
 s32 Check_Pause_Term(u16 sw, u8 PL_id);
@@ -74,9 +74,9 @@ void Pause_Move(struct _TASK* task_ptr) {
     }
 }
 
-void Pause_Sleep(struct _TASK* /* unused */) {};
+void Pause_Sleep(struct _TASK* p1) {};
 
-void Pause_Die(struct _TASK* /* unused */) {};
+void Pause_Die(struct _TASK* p1) {};
 
 void Flash_Pause(struct _TASK* task_ptr) {
     void (*Flash_Jmp_Tbl[5])(
@@ -87,7 +87,7 @@ void Flash_Pause(struct _TASK* task_ptr) {
     }
 }
 
-void Flash_Pause_Sleep(struct _TASK* /* unused */) {}
+void Flash_Pause_Sleep(struct _TASK* p1) {}
 
 void Flash_Pause_1st(struct _TASK* task_ptr) {
     if (--task_ptr->free[0] == 0) {
@@ -111,7 +111,7 @@ void Flash_Pause_2nd(struct _TASK* task_ptr) {
     task_ptr->free[0] = 30;
 }
 
-void Flash_Pause_3rd(struct _TASK* /* unused */) {}
+void Flash_Pause_3rd(struct _TASK* p1) {}
 
 void Flash_Pause_4th(struct _TASK* task_ptr) {
     if (Interface_Type[Pause_ID] == 0) {

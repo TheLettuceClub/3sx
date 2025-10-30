@@ -9,7 +9,11 @@
 #include <assert.h>
 #include <stdio.h>
 
+#if defined(_MSC_VER)
+__declspec(align(16)) static CSE_SYSWORK cseSysWork;
+#else
 static CSE_SYSWORK cseSysWork __attribute__((aligned(16)));
+#endif
 
 s32 cseInitSndDrv() {
     u32 i;

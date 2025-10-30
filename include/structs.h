@@ -1414,7 +1414,7 @@ typedef struct {
     f32 u;
     f32 v;
     u32 col;
-} Polygon;
+} Polygon2;
 
 typedef struct {
     f32 x;

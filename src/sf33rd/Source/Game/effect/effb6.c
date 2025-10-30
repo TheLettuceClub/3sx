@@ -12,7 +12,7 @@
 
 #include <string.h>
 
-#if !defined(TARGET_PS2)
+#if !defined(TARGET_PS2) && !defined(_MSC_VER)
 #include <strings.h>
 #endif
 

@@ -126,7 +126,7 @@ void Debug_2nd(struct _TASK* task_ptr) {
     }
 }
 
-void Debug_Menu_Disp(u32 /* unused */, u32 /* unused */) {
+void Debug_Menu_Disp(u32 p1, u32 p2) {
     s16 side;
     s16 ix;
     s16 i;
@@ -403,7 +403,7 @@ void Check_Check_Screen() {
     }
 }
 
-void Disp_Lever(u16* /* unused */, u32 /* unused */, u32 /* unused */) {
+void Disp_Lever(u16* p1, u32 p2, u32 p3) {
     // do nothing
 }
 

@@ -57,6 +57,8 @@ target_compile_definitions(3sx PRIVATE
 
 if(CMAKE_C_COMPILER_ID STREQUAL "Clang" OR CMAKE_C_COMPILER_ID STREQUAL "AppleClang")
     set(DISABLED_WARNINGS
+        -Werror
+        -fno-strict-aliasing
         -Wpointer-to-int-cast
         -Wno-deprecated-non-prototype
         -Wno-tautological-overlap-compare
@@ -66,6 +68,8 @@ if(CMAKE_C_COMPILER_ID STREQUAL "Clang" OR CMAKE_C_COMPILER_ID STREQUAL "AppleCl
     )
 elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
     set(DISABLED_WARNINGS
+        -Werror
+        -fno-strict-aliasing
         -Wno-unused-but-set-variable
         -Wno-pointer-sign
         -Wno-parentheses
@@ -80,22 +84,37 @@ elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
         -Wno-restrict
         -Wno-stringop-truncation
     )
+elseif(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
+    set(DISABLED_WARNINGS
+        /WX
+        /wd4820
+        /wd4255
+        /wd4200
+        /wd4244
+        /wd4242
+        /wd4388
+        /wd5292
+        /wd4100
+        /wd4601
+    )
 endif()
 
 target_compile_options(3sx PRIVATE
     -Wall
-    -Werror
-
-    -fno-strict-aliasing
-
     ${DISABLED_WARNINGS}
 )
 
-target_link_libraries(3sx PRIVATE
-    m
-    GekkoNet
-    stdc++
-)
+if(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
+    target_link_libraries(3sx PRIVATE
+        GekkoNet
+    )
+else()
+    target_link_libraries(3sx PRIVATE
+        m
+        GekkoNet
+        stdc++
+    )
+endif()
 
 set_target_properties(3sx PROPERTIES
     MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/cmake/Info.plist"
@@ -141,10 +160,12 @@ elseif(WIN32)
         ${SDL3_ROOT}/lib/libSDL3.dll.a
 		dbghelp
     )
-    target_link_options(3sx PRIVATE
-        --for-linker
-        --pdb=3sx.pdb
-    )
+    if(NOT CMAKE_C_COMPILER_ID STREQUAL "MSVC")
+        target_link_options(3sx PRIVATE
+            --for-linker
+            --pdb=3sx.pdb
+        )
+    endif()
 elseif(UNIX)
     target_link_libraries(3sx PRIVATE
         ${FFMPEG_ROOT}/lib/libavcodec.so

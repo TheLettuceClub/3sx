@@ -120,7 +120,7 @@ void Direction_Menu(struct _TASK* task_ptr);
 void Save_Direction(struct _TASK* task_ptr);
 void Load_Direction(struct _TASK* task_ptr);
 void Setup_VS_Mode(struct _TASK* task_ptr);
-void Setup_Next_Page(struct _TASK* task_ptr, u8 /* unused */);
+void Setup_Next_Page(struct _TASK* task_ptr, u8 p1);
 void Load_Replay_Sub(struct _TASK* task_ptr);
 void Button_Exit_Check(struct _TASK* task_ptr, s16 PL_id);
 void Back_to_Mode_Select(struct _TASK* task_ptr);
@@ -140,7 +140,7 @@ void System_Dir_Move_Sub(s16 PL_id);
 void System_Dir_Move_Sub_LR(u16 sw, s16 cursor_id);
 void Dir_Move_Sub(struct _TASK* task_ptr, s16 PL_id);
 u16 Dir_Move_Sub2(u16 sw);
-void Dir_Move_Sub_LR(u16 sw, s16 /* unused */);
+void Dir_Move_Sub_LR(u16 sw, s16 p1);
 void Ex_Move_Sub_LR(u16 sw, s16 PL_id);
 u16 Game_Option_Sub(s16 PL_id);
 u16 GO_Move_Sub_LR(u16 sw, s16 cursor_id);
@@ -184,7 +184,7 @@ s32 Yes_No_Cursor_Move_Sub(struct _TASK* task_ptr);
 void Setup_Button_Sub(s16 x, s16 y, s16 master_player);
 void Button_Exit_Check_in_Game(struct _TASK* task_ptr, s16 PL_id);
 void Setup_Save_Replay_1st(struct _TASK* task_ptr);
-s32 Save_Replay_MC_Sub(struct _TASK* task_ptr, s16 /* unused */);
+s32 Save_Replay_MC_Sub(struct _TASK* task_ptr, s16 p1);
 void Button_Exit_Check_in_Tr(struct _TASK* task_ptr, s16 PL_id);
 s32 VS_Result_Select_Sub(struct _TASK* task_ptr, s16 PL_id);
 
@@ -1150,7 +1150,7 @@ u16 Dir_Move_Sub2(u16 sw) {
     }
 }
 
-void Dir_Move_Sub_LR(u16 sw, s16 /* unused */) {
+void Dir_Move_Sub_LR(u16 sw, s16 p1) {
     u8 last_pos = system_dir[1].contents[Menu_Page][Menu_Cursor_Y[0]];
 
     switch (sw) {
@@ -1223,7 +1223,7 @@ void Dir_Move_Sub_LR(u16 sw, s16 /* unused */) {
     }
 }
 
-void Setup_Next_Page(struct _TASK* task_ptr, u8 /* unused */) {
+void Setup_Next_Page(struct _TASK* task_ptr, u8 p1) {
     s16 ix;
     s16 disp_index;
     s16 mode_type;
@@ -2983,7 +2983,7 @@ u16 Check_Menu_Lever(u8 PL_id, s16 type) {
     return 0;
 }
 
-void Suspend_Menu(struct _TASK* /* unused */) {
+void Suspend_Menu(struct _TASK* p1) {
     // Do nothing
 }
 
@@ -3259,7 +3259,7 @@ s32 Check_Pad_in_Pause(struct _TASK* task_ptr) {
     return 0;
 }
 
-void Pad_Come_Out(struct _TASK* /* unused */) {}
+void Pad_Come_Out(struct _TASK* p1) {}
 
 void bg_etc_write_ex(s16 type) {
     u8 i;
@@ -3844,7 +3844,7 @@ void Setup_Save_Replay_2nd(struct _TASK* task_ptr, s16 arg1) {
     }
 }
 
-void Setup_Replay_Sub(s16 /* unused */, s16 type, s16 char_type, s16 master_player) {
+void Setup_Replay_Sub(s16 p1, s16 type, s16 char_type, s16 master_player) {
     effect_57_init(type, char_type, 0, 63, 2);
     Order[type] = 1;
     Order_Dir[type] = 8;
@@ -3865,7 +3865,7 @@ void Return_VS_Result_Sub(struct _TASK* task_ptr) {
     Order_Timer[110] = 1;
 }
 
-s32 Save_Replay_MC_Sub(struct _TASK* task_ptr, s16 /* unused */) {
+s32 Save_Replay_MC_Sub(struct _TASK* task_ptr, s16 p1) {
     switch (IO_Result) {
     case 0x100:
         SE_selected();

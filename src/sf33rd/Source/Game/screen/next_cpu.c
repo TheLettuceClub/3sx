@@ -66,7 +66,7 @@ void Next_Bonus_End();
 void Next_Q_1st();
 void Next_Q_2nd();
 void Next_Q_3rd();
-void Sel_CPU_Sub(s16 PL_id, u16 sw, u16 /* unused */);
+void Sel_CPU_Sub(s16 PL_id, u16 sw, u16 p1);
 void Setup_EM_List();
 void Setup_Next_Fighter();
 s8 Setup_Com_Arts();
@@ -1059,7 +1059,7 @@ void Next_Q_3rd() {
     }
 }
 
-void Sel_CPU_Sub(s16 PL_id, u16 sw, u16 /* unused */) {
+void Sel_CPU_Sub(s16 PL_id, u16 sw, u16 p1) {
     u16 lever_sw;
 
     if (Sel_EM_Complete[PL_id]) {

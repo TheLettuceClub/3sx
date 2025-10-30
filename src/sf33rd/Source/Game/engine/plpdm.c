@@ -62,7 +62,7 @@ void get_sky_dm_timer(PLW* wk);
 void get_damage_reaction_data(PLW* wk);
 void damage_atemi_setup(PLW* wk, PLW* ek);
 void check_bullet_damage(PLW* wk);
-void check_dmpat_to_dmpat(PLW* /* unused */);
+void check_dmpat_to_dmpat(PLW* p1);
 void add_dm_step_tbl(PLW* wk, s8 flag);
 void set_dm_hos_flag_grd(PLW* wk);
 void setup_smoke_type(PLW* wk);
@@ -1345,7 +1345,7 @@ void add_dm_step_tbl(PLW* wk, s8 flag) {
     wk->dm_step_tbl++;
 }
 
-void check_dmpat_to_dmpat(PLW* /* unused */) {}
+void check_dmpat_to_dmpat(PLW* p1) {}
 
 void set_dm_hos_flag_sky(PLW* wk) {
     PLW* twk = (PLW*)wk->wu.target_adrs;

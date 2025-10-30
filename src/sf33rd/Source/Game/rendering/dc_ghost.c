@@ -139,7 +139,7 @@ void njCalcPoints(MTX* mtx, Vec3* ps, Vec3* pd, s32 num) {
     }
 }
 
-void njDrawTexture(Polygon* polygon, s32 /* unused */, s32 tex, s32 /* unused */) {
+void njDrawTexture(Polygon2* polygon, s32 p1, s32 tex, s32 p2) {
     Vertex vtx[4];
     s32 i;
 
@@ -150,7 +150,7 @@ void njDrawTexture(Polygon* polygon, s32 /* unused */, s32 tex, s32 /* unused */
     ppgWriteQuadWithST_B(vtx, polygon[0].col, NULL, tex, -1);
 }
 
-void njDrawSprite(Polygon* polygon, s32 /* unused */, s32 tex, s32 /* unused */) {
+void njDrawSprite(Polygon2* polygon, s32 p1, s32 tex, s32 p2) {
     Vertex vtx[4];
 
     if ((polygon[0].x >= 384.0f) || (polygon[3].x < 0.0f) || (polygon[0].y >= 224.0f) || (polygon[3].y < 0.0f)) {
@@ -259,7 +259,7 @@ void njdp2d_sort(f32* pos, f32 pri, uintptr_t col, s32 flag) {
     njdp2d_w.total += 1;
 }
 
-void njDrawPolygon2D(PAL_CURSOR* p, s32 /* unused */, f32 pri, u32 attr) {
+void njDrawPolygon2D(PAL_CURSOR* p, s32 p1, f32 pri, u32 attr) {
     if (attr & 0x20) {
         njdp2d_sort((f32*)p->p, pri, p->col->color, 0);
     }

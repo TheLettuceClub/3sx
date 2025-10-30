@@ -25,7 +25,7 @@
 
 // sbss
 Vertex scrDrawPos[4];
-Polygon bgpoly[4];
+Polygon2 bgpoly[4];
 u8 bg_priority[4];
 u16 Screen_Switch;
 u16 Screen_Switch_Buffer;
@@ -50,7 +50,7 @@ BG bg_w;
 RW_DATA rw_dat[20];
 
 static void bgRWWorkUpdate();
-static void bgDrawOneScreen(s32 bgnum, s32 gixbase, s32* xx, s32* yy, s32 /* unused */, s32 ofsPal,
+static void bgDrawOneScreen(s32 bgnum, s32 gixbase, s32* xx, s32* yy, s32 p1, s32 ofsPal,
                             PPGDataList* curDataList);
 static void bgDrawOneChip(s32 x, s32 y, s32 xs, s32 ys, s32 gbix, u32 vtxCol, s32 ofsPal);
 static void bgAkebonoDraw();
@@ -1066,7 +1066,7 @@ void bgRWWorkUpdate() {
     }
 }
 
-void bgDrawOneScreen(s32 bgnum, s32 gixbase, s32* xx, s32* yy, s32 /* unused */, s32 ofsPal, PPGDataList* curDataList) {
+void bgDrawOneScreen(s32 bgnum, s32 gixbase, s32* xx, s32* yy, s32 p1, s32 ofsPal, PPGDataList* curDataList) {
     s32 i, x, y, gbix;
 
     for (y = yy[0]; y < yy[1]; y += 128) {

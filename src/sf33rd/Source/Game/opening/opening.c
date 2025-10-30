@@ -227,7 +227,7 @@ void OPBG_Init() {
     Zoom_Value_Set(0x40);
 }
 
-s16 OPBG_Move(s32 /* unused */) {
+s16 OPBG_Move(s32 p1) {
     s16 flag = 0;
 
     flag = oh_opening_demo();
@@ -1985,7 +1985,7 @@ void op_bg0_move(s16 r_index) {
     op_bg0_move_jp[r_index](r_index);
 }
 
-void op_bg0_0000(s16 /* unused */) {
+void op_bg0_0000(s16 p1) {
     switch (opw_ptr->r_no_0) {
     case 0:
         opw_ptr->r_no_0 += 1;
@@ -2338,7 +2338,7 @@ void op_bg0_0004(s16 r_index) {
 const s16 op_bg0_0005_tbl[16] = { 0x0008, 0xFFF8, 0x0007, 0xFFF9, 0x0005, 0xFFFB, 0x0004, 0xFFFC,
                                   0x0002, 0xFFFE, 0x0001, 0xFFFF, 0x0000, 0x0000, 0x0000, 0x0000 };
 
-void op_bg0_0005(s16 /* unused */) {
+void op_bg0_0005(s16 p1) {
     switch (opw_ptr->r_no_0) {
     case 0:
         opw_ptr->r_no_0 += 1;
@@ -2386,7 +2386,7 @@ void op_bg0_0005(s16 /* unused */) {
     op_scrn_pos_set2(0);
 }
 
-void op_bg0_0006(s16 /* unused */) {
+void op_bg0_0006(s16 p1) {
     switch (opw_ptr->r_no_0) {
     case 0:
         opw_ptr->r_no_0 += 1;
@@ -2412,7 +2412,7 @@ void op_bg0_0006(s16 /* unused */) {
     op_scrn_pos_set2(0);
 }
 
-void op_bg0_0007(s16 /* unused */) {
+void op_bg0_0007(s16 p1) {
     switch (opw_ptr->r_no_0) {
     case 0:
         opw_ptr->r_no_0 += 1;
@@ -2444,7 +2444,7 @@ void op_bg0_0007(s16 /* unused */) {
     op_scrn_pos_set2(0);
 }
 
-void op_bg0_0008(s16 /* unused */) {
+void op_bg0_0008(s16 p1) {
     switch (opw_ptr->r_no_0) {
     case 0:
         opw_ptr->r_no_0 += 1;
@@ -2476,7 +2476,7 @@ void op_bg0_0008(s16 /* unused */) {
     op_scrn_pos_set2(0);
 }
 
-void op_bg0_0010(s16 /* unused */) {
+void op_bg0_0010(s16 p1) {
     switch (opw_ptr->r_no_0) {
     case 0:
         opw_ptr->r_no_0 += 1;
@@ -2505,7 +2505,7 @@ void op_bg0_0010(s16 /* unused */) {
     op_scrn_pos_set2(0);
 }
 
-void op_bg0_0011(s16 /* unused */) {
+void op_bg0_0011(s16 p1) {
     switch (opw_ptr->r_no_0) {
     case 0:
         opw_ptr->r_no_0 += 1;
@@ -2541,7 +2541,7 @@ void op_bg0_0011(s16 /* unused */) {
     op_scrn_pos_set2(0);
 }
 
-void op_bg0_0012(s16 /* unused */) {
+void op_bg0_0012(s16 p1) {
     switch (opw_ptr->r_no_0) {
     case 0:
         opw_ptr->r_no_0 += 1;
@@ -2571,7 +2571,7 @@ void op_bg0_0012(s16 /* unused */) {
     op_scrn_pos_set2(0);
 }
 
-void op_bg0_0013(s16 /* unused */) {
+void op_bg0_0013(s16 p1) {
     switch (opw_ptr->r_no_0) {
     case 0:
         opw_ptr->r_no_0 += 1;
@@ -2658,7 +2658,7 @@ void op_bg0_0015(s16 r_index) {
     op_scrn_pos_set2(0);
 }
 
-void op_bg0_0016(s16 /* unused */) {
+void op_bg0_0016(s16 p1) {
     switch (opw_ptr->r_no_0) {
     case 0:
         opw_ptr->r_no_0 += 1;
@@ -2725,7 +2725,7 @@ void op_bg1_move(s16 r_index) {
     op_scrn_pos_set2(1);
 }
 
-void op_bg1_0000(s16 /* unused */) {
+void op_bg1_0000(s16 p1) {
     switch (opw_ptr->r_no_0) {
     case 0:
         opw_ptr->r_no_0 += 1;

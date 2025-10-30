@@ -59,7 +59,7 @@ s32 Check_EM_Sub(s16 ix, s16 ok_urien, s16 Rnd);
 
 const u16 Convert_Data[12] = { 16, 32, 64, 256, 512, 1024, 272, 544, 1088, 112, 1792, 0 };
 
-void Switch_Screen_Init(s32 /* unused */) {
+void Switch_Screen_Init(s32 p1) {
     WipeInit();
     Forbid_Break = 1;
     Exec_Wipe = 1;
@@ -1854,6 +1854,6 @@ void Clear_Break_Com(s16 PL_id) {
     }
 }
 
-s32 Flash_Violent(WORK_Other* /* unused */, s32 /* unused */) {
+s32 Flash_Violent(WORK_Other* p1, s32 p2) {
     return 1;
 }
